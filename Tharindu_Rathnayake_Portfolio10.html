@@ -1,0 +1,723 @@
+portfolio_html = """
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tharindu Rathnayake | Finance & Legal Professional</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#C5A880',
+              navy: '#0A192F',
+              'navy-light': '#172A45',
+              slate: '#8892B0',
+              lightest: '#CCD6F6',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0A192F;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #C5A880;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b39366;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #C5A880 0%, #E6D5B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-brand-navy text-slate-800 dark:text-brand-lightest font-sans transition-colors duration-300">
+
+  <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-brand-navy/90 backdrop-blur-md border-b border-slate-200 dark:border-brand-navy-light/50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-xl font-bold font-serif tracking-wide text-slate-900 dark:text-white flex items-center gap-2">
+        <span class="text-brand-gold font-sans font-extrabold">&lt;T/R&gt;</span> Tharindu R.
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">About</a>
+        <a href="#experience" class="text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Experience</a>
+        <a href="#skills" class="text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Skills</a>
+        <a href="#education" class="text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Education</a>
+        <a href="#references" class="text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">References</a>
+        <a href="#contact" class="px-4 py-2 text-sm font-bold border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy rounded-md transition-all">Get in Touch</a>
+
+        <button id="themeToggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-brand-navy-light text-brand-gold transition-colors" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+        </button>
+      </nav>
+
+      <div class="flex items-center gap-4 md:hidden">
+        <button id="themeToggleMob" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-brand-navy-light text-brand-gold transition-colors" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+          <i class="fa-solid fa-sun hidden dark:block text-lg"></i>
+        </button>
+        <button id="menuBtn" class="text-slate-900 dark:text-white text-2xl focus:outline-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-brand-navy-light border-b border-slate-200 dark:border-brand-navy-light px-6 py-4 flex flex-col gap-4">
+      <a href="#about" class="mobile-link text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">About</a>
+      <a href="#experience" class="mobile-link text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Experience</a>
+      <a href="#skills" class="mobile-link text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Skills</a>
+      <a href="#education" class="mobile-link text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">Education</a>
+      <a href="#references" class="mobile-link text-sm font-semibold hover:text-brand-gold transition-colors dark:text-slate-300">References</a>
+      <a href="#contact" class="mobile-link text-center px-4 py-2 text-sm font-bold border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-navy rounded-md transition-all">Get in Touch</a>
+    </div>
+  </header>
+
+  <section id="hero" class="min-h-screen flex items-center pt-24 px-6 relative overflow-hidden bg-gradient-to-b from-slate-100 to-slate-50 dark:from-brand-navy dark:to-brand-navy-light">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-brand-gold blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-blue-500 blur-3xl"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-8 items-center z-10">
+      <div class="md:col-span-7 space-y-6">
+        <span class="text-brand-gold font-mono font-semibold tracking-widest text-sm block">HELLO, I AM</span>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
+          Tharindu <br><span class="text-gradient">Rathnayake</span>
+        </h1>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="px-3 py-1 bg-slate-200 dark:bg-brand-navy-light text-slate-800 dark:text-brand-gold rounded-full text-xs font-semibold tracking-wider uppercase border border-slate-300 dark:border-brand-gold/30">CABM</span>
+          <span class="px-3 py-1 bg-slate-200 dark:bg-brand-navy-light text-slate-800 dark:text-brand-gold rounded-full text-xs font-semibold tracking-wider uppercase border border-slate-300 dark:border-brand-gold/30">Attorney-at-Law (Reading)</span>
+          <span class="px-3 py-1 bg-slate-200 dark:bg-brand-navy-light text-slate-800 dark:text-brand-gold rounded-full text-xs font-semibold tracking-wider uppercase border border-slate-300 dark:border-brand-gold/30">Accountant</span>
+        </div>
+        <p class="text-lg text-slate-600 dark:text-brand-slate max-w-xl">
+          Seasoned accountant with years of hands-on experience managing financial records, budgets, and audits for both Private and Public sector organizations. Seamlessly bridging the gap between sound corporate finance and legal strategy.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#contact" class="px-6 py-3 bg-brand-gold text-brand-navy hover:bg-white hover:text-brand-navy border-2 border-brand-gold rounded-md font-bold shadow-lg hover:shadow-xl transition-all">
+            Let's Work Together
+          </a>
+          <a href="#experience" class="px-6 py-3 border-2 border-slate-300 dark:border-brand-gold/50 text-slate-800 dark:text-brand-gold hover:bg-brand-gold/10 rounded-md font-bold transition-all">
+            View Portfolio
+          </a>
+        </div>
+      </div>
+
+      <div class="md:col-span-5 flex justify-center relative">
+        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-4 border-dashed border-brand-gold/30 flex items-center justify-center animate-[spin_60s_linear_infinite]">
+          <div class="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full border border-slate-300 dark:border-brand-gold/20 flex items-center justify-center">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-brand-gold/20 to-transparent flex items-center justify-center"></div>
+          </div>
+        </div>
+        <div class="absolute top-8 left-4 sm:left-8 bg-white dark:bg-brand-navy-light p-4 rounded-xl shadow-xl border border-slate-200 dark:border-brand-gold/20 flex items-center gap-3 animate-bounce" style="animation-duration: 6s;">
+          <span class="p-2.5 bg-green-100 dark:bg-green-900/30 text-green-500 rounded-lg"><i class="fa-solid fa-chart-line text-xl"></i></span>
+          <div>
+            <p class="text-xs text-slate-400 dark:text-brand-slate font-semibold">Portfolio Management</p>
+            <p class="text-sm font-bold text-slate-900 dark:text-white">Active Advisory</p>
+          </div>
+        </div>
+        <div class="absolute bottom-12 right-4 sm:right-8 bg-white dark:bg-brand-navy-light p-4 rounded-xl shadow-xl border border-slate-200 dark:border-brand-gold/20 flex items-center gap-3 animate-bounce" style="animation-duration: 8s;">
+          <span class="p-2.5 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-500 rounded-lg"><i class="fa-solid fa-scale-balanced text-xl"></i></span>
+          <div>
+            <p class="text-xs text-slate-400 dark:text-brand-slate font-semibold">Legal Insights</p>
+            <p class="text-sm font-bold text-slate-900 dark:text-white">Law Student</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-6 bg-white dark:bg-brand-navy">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">01. Profile Summary</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">About Me</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-6 space-y-6">
+          <h3 class="text-2xl font-serif font-semibold text-slate-900 dark:text-white">Financial Precision meets Strategic Legal Vision</h3>
+          <p class="text-slate-600 dark:text-brand-slate leading-relaxed">
+            I am a highly skilled accounting professional with solid experience managing complex financial audits, multi-layered budgets, and records for diverse private & public entities. Parallelly pursuing my legal credentials as an Attorney-at-Law, I integrate legal perspective into corporate structuring, risk assessments, and asset management.
+          </p>
+          <p class="text-slate-600 dark:text-brand-slate leading-relaxed">
+            Throughout my career, I've proven my ability to direct teams, control production costs, structure debts, and streamline accounts to support long-term economic scalability. I excel at converting granular financial data into actionable, top-level boardroom strategies.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold"></i>
+              <span class="text-sm font-semibold text-slate-700 dark:text-brand-lightest">Tax & VAT Compliance</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold"></i>
+              <span class="text-sm font-semibold text-slate-700 dark:text-brand-lightest">Asset Restructuring</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold"></i>
+              <span class="text-sm font-semibold text-slate-700 dark:text-brand-lightest">Cost Management</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-circle-check text-brand-gold"></i>
+              <span class="text-sm font-semibold text-slate-700 dark:text-brand-lightest">Legal Consultation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-slate-100 dark:bg-brand-navy-light p-6 rounded-lg border-b-4 border-brand-gold hover:-translate-y-2 transition-all duration-300">
+            <span class="text-brand-gold text-3xl mb-4 block"><i class="fa-solid fa-brain"></i></span>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Problem Solving</h4>
+            <p class="text-sm text-slate-600 dark:text-brand-slate">Analysing intricate corporate books to solve pricing or resource bottlenecks.</p>
+          </div>
+          <div class="bg-slate-100 dark:bg-brand-navy-light p-6 rounded-lg border-b-4 border-slate-400 dark:border-brand-slate hover:-translate-y-2 transition-all duration-300">
+            <span class="text-slate-500 dark:text-brand-slate text-3xl mb-4 block"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Detail Reporting</h4>
+            <p class="text-sm text-slate-600 dark:text-brand-slate">High-integrity audit preparation and regular stakeholder reports.</p>
+          </div>
+          <div class="bg-slate-100 dark:bg-brand-navy-light p-6 rounded-lg border-b-4 border-slate-400 dark:border-brand-slate hover:-translate-y-2 transition-all duration-300">
+            <span class="text-slate-500 dark:text-brand-slate text-3xl mb-4 block"><i class="fa-solid fa-people-group"></i></span>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Team Leadership</h4>
+            <p class="text-sm text-slate-600 dark:text-brand-slate">Guiding cross-functional team dynamics to ensure organizational alignment.</p>
+          </div>
+          <div class="bg-slate-100 dark:bg-brand-navy-light p-6 rounded-lg border-b-4 border-brand-gold hover:-translate-y-2 transition-all duration-300">
+            <span class="text-brand-gold text-3xl mb-4 block"><i class="fa-solid fa-shield-halved"></i></span>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Legal Shield</h4>
+            <p class="text-sm text-slate-600 dark:text-brand-slate">Safeguarding entities by structuring portfolios within compliance limits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="py-24 px-6 bg-slate-100 dark:bg-brand-navy-light">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">02. Career History</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">Work Experience</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="relative border-l-2 border-brand-gold/30 ml-4 md:ml-8 space-y-12">
+
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-gold ring-4 ring-slate-100 dark:ring-brand-navy-light"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              Accountant
+              <span class="text-xs bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-2 py-0.5 rounded font-mono">Available</span>
+            </h3>
+            <span class="text-sm font-mono text-brand-gold font-semibold">2024 - 2026</span>
+          </div>
+          <p class="text-md font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-building text-slate-400"></i> Supreme Ready Mix, Udugampola, Sri Lanka
+          </p>
+          <ul class="space-y-3 text-slate-600 dark:text-brand-slate text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Oversee accurate financial record-keeping and prepare timely financial statements.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Manage accounts payable (AP) and accounts receivable (AR), ensuring seamless payments and collections.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Monitor operational production costs, conduct regular inventory valuation, and provide crucial metrics to support strategic pricing decisions.
+            </li>
+          </ul>
+        </div>
+
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-brand-slate ring-4 ring-slate-100 dark:ring-brand-navy-light"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Individual Portfolio Manager & Consultant</h3>
+            <span class="text-sm font-mono text-brand-gold font-semibold">2016 - 2019</span>
+          </div>
+          <p class="text-md font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-user-tie text-slate-400"></i> Independent Portfolio Advisory
+          </p>
+          <ul class="space-y-3 text-slate-600 dark:text-brand-slate text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Provided high-level Equity Management strategies and calculated risk-yield indexes for clients.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Advised on Debt Restructuring processes to pull commercial clients out of liquidity crunches.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Designed custom Personal Investment Plans focused on compound returns, diversification, and wealth preservation.
+            </li>
+          </ul>
+        </div>
+        <div class="relative pl-8 md:pl-12">
+          <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-brand-slate ring-4 ring-slate-100 dark:ring-brand-navy-light"></div>
+
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-2">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Accountant</h3>
+            <span class="text-sm font-mono text-brand-gold font-semibold">2019 - 2024</span>
+          </div>
+          <p class="text-md font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-building text-slate-400"></i> True Wood Interior Design Works LLC, Dubai, UAE
+          </p>
+          <ul class="space-y-3 text-slate-600 dark:text-brand-slate text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Managed full-cycle Accounts Payable (AP) tracking and structured vendor remittance procedures.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Administered Accounts Receivable (AR), ensuring high efficiency in customer collections.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Handled monthly multi-tier corporate payroll management.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Processed quarterly UAE VAT Returns and corporate tax reports.
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-gold mt-1"><i class="fa-solid fa-caret-right"></i></span>
+              Maintained daily petty cash registers and oversaw minor operating expenditures.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="py-24 px-6 bg-white dark:bg-brand-navy">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">03. Competency</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">Professional Skills</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="bg-slate-100 dark:bg-brand-navy-light p-8 rounded-xl shadow-md border border-slate-200 dark:border-brand-navy-light/80">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-money-check-dollar text-brand-gold"></i> Financial Systems
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Accounts Payable & Receivable</span>
+                <span class="text-brand-gold">95%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 95%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Corporate Payroll & VAT Returns</span>
+                <span class="text-brand-gold">90%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Asset Restructuring & Equity</span>
+                <span class="text-brand-gold">85%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Computerized Accounting</span>
+                <span class="text-brand-gold">90%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 dark:bg-brand-navy-light p-8 rounded-xl shadow-md border border-slate-200 dark:border-brand-navy-light/80">
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <i class="fa-solid fa-sliders text-brand-gold"></i> Leadership & Strategy
+          </h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Negotiation</span>
+                <span class="text-brand-gold">90%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Management Skills</span>
+                <span class="text-brand-gold">85%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Critical Thinking</span>
+                <span class="text-brand-gold">95%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 95%;"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-sm font-semibold mb-1">
+                <span>Team Leadership</span>
+                <span class="text-brand-gold">90%</span>
+              </div>
+              <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-gold h-full rounded-full" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 dark:bg-brand-navy-light p-8 rounded-xl shadow-md border border-slate-200 dark:border-brand-navy-light/80 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+              <i class="fa-solid fa-bullseye text-brand-gold"></i> Marketing & Media
+            </h3>
+            <div class="space-y-4 mb-6">
+              <div>
+                <div class="flex justify-between text-sm font-semibold mb-1">
+                  <span>Digital Marketing</span>
+                  <span class="text-brand-gold">80%</span>
+                </div>
+                <div class="w-full bg-slate-300 dark:bg-brand-navy h-2 rounded-full overflow-hidden">
+                  <div class="bg-brand-gold h-full rounded-full" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2 border-t border-slate-200 dark:border-brand-gold/10 pt-4">
+              <i class="fa-solid fa-language text-brand-gold"></i> Languages
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 bg-white dark:bg-brand-navy text-xs font-semibold rounded-md border border-slate-300 dark:border-brand-gold/20 flex items-center gap-1.5"><i class="fa-solid fa-earth-asia text-brand-gold"></i> English</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-brand-navy text-xs font-semibold rounded-md border border-slate-300 dark:border-brand-gold/20 flex items-center gap-1.5"><i class="fa-solid fa-earth-asia text-brand-gold"></i> Sinhala</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-brand-navy text-xs font-semibold rounded-md border border-slate-300 dark:border-brand-gold/20 flex items-center gap-1.5"><i class="fa-solid fa-earth-asia text-brand-gold"></i> Hindi</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="py-24 px-6 bg-slate-100 dark:bg-brand-navy-light">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">04. Credentials</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">Education & Certifications</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="bg-white dark:bg-brand-navy p-8 rounded-xl shadow-md border-t-4 border-brand-gold flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-brand-gold font-bold bg-brand-gold/10 px-2 py-1 rounded">2026</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Certified Accounting & Business Manager (CABM)</h3>
+            <p class="text-sm text-slate-500 dark:text-brand-slate font-medium mb-4">Institute of Certified Management Accountants of Sri Lanka</p>
+          </div>
+          <p class="text-xs text-slate-400">Professional management accountant certification ensuring rigorous accounting and business leadership capacities.</p>
+        </div>
+
+        <div class="bg-white dark:bg-brand-navy p-8 rounded-xl shadow-md border-t-4 border-brand-gold flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-brand-gold font-bold bg-brand-gold/10 px-2 py-1 rounded">Reading</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Attorney-at-Law</h3>
+            <p class="text-sm text-slate-500 dark:text-brand-slate font-medium mb-4">Legal Bar of Sri Lanka (Reading)</p>
+          </div>
+          <p class="text-xs text-slate-400">Deep study of corporate, civil, public and contract law, merging statutory regulations with business framework planning.</p>
+        </div>
+
+        <div class="bg-white dark:bg-brand-navy p-8 rounded-xl shadow-md border-t-4 border-slate-400 dark:border-brand-slate flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-brand-gold font-bold bg-brand-gold/10 px-2 py-1 rounded">2012 - 2013</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-4 mb-2">Diploma in Accounting & Business Studies / Computerized Accounting</h3>
+            <p class="text-sm text-slate-500 dark:text-brand-slate font-medium mb-4">British Informatics of Computer Technology</p>
+          </div>
+          <p class="text-xs text-slate-400">Technical grounding in modern accounting databases, computerisedledgers, spreadsheets, and general informatics.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="references" class="py-24 px-6 bg-white dark:bg-brand-navy">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">05. Endorsements</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">Professional References</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-slate-100 dark:bg-brand-navy-light p-8 rounded-xl border border-slate-200 dark:border-brand-navy-light relative overflow-hidden flex flex-col justify-between">
+          <span class="absolute -right-4 -bottom-4 text-8xl text-brand-gold/10"><i class="fa-solid fa-quote-right"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Mr. Vimukthi Dharshana</h3>
+            <p class="text-sm text-brand-gold font-medium mb-4">Senior Accountant | Fuchsia Urban Thai Dubai</p>
+            <p class="text-sm text-slate-600 dark:text-brand-slate italic leading-relaxed mb-6">
+              "Tharindu displayed unparalleled precision and efficiency as our administrator. He controlled complex records, optimized cash flows, and supported operations smoothly."
+            </p>
+          </div>
+          <div class="border-t border-slate-200 dark:border-brand-gold/10 pt-4 flex flex-col gap-1.5 text-xs text-slate-500 dark:text-brand-slate font-mono">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold text-xs"></i> Barsha Heights, Dubai, UAE</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-gold text-xs"></i> (971) 52 954 3058</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-brand-gold text-xs"></i> (094) 77 625 9832</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-100 dark:bg-brand-navy-light p-8 rounded-xl border border-slate-200 dark:border-brand-navy-light relative overflow-hidden flex flex-col justify-between">
+          <span class="absolute -right-4 -bottom-4 text-8xl text-brand-gold/10"><i class="fa-solid fa-quote-right"></i></span>
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Dr. R. M. K. Ratnayake</h3>
+            <p class="text-sm text-brand-gold font-medium mb-4">Former Director | NCAS, Ministry of Higher Education</p>
+            <p class="text-sm text-slate-600 dark:text-brand-slate italic leading-relaxed mb-6">
+              "Having structural intelligence combined with strategic finance capabilities, Tharindu brings an analytical framework to any operation he guides."
+            </p>
+          </div>
+          <div class="border-t border-slate-200 dark:border-brand-gold/10 pt-4 flex flex-col gap-1.5 text-xs text-slate-500 dark:text-brand-slate font-mono">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold text-xs"></i> Ward Place, Colombo 07, Sri Lanka</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-gold text-xs"></i> (94) 11 268 5850</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-mobile-screen-button text-brand-gold text-xs"></i> (94) 71 440 8300</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 px-6 bg-slate-100 dark:bg-brand-navy-light">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-brand-gold font-mono text-sm tracking-wider uppercase">06. Next Steps</span>
+        <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2 text-slate-900 dark:text-white">Get In Touch</h2>
+        <div class="w-16 h-1 bg-brand-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12">
+
+        <div class="lg:col-span-5 space-y-8">
+          <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white">Let's Discuss New Ventures</h3>
+          <p class="text-slate-600 dark:text-brand-slate text-sm leading-relaxed">
+            Whether looking for advanced asset restructuring consulting, dedicated corporate accounting oversight, or regulatory legal planning support, I am always open to exploring collaborative roles. Let's build stable business horizons.
+          </p>
+
+          <div class="space-y-4 font-mono">
+            <div class="flex items-center gap-4">
+              <span class="w-11 h-11 rounded-lg bg-white dark:bg-brand-navy border border-slate-200 dark:border-brand-gold/20 flex items-center justify-center text-brand-gold text-lg shadow-sm">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+              <div>
+                <p class="text-xs text-slate-400 font-semibold">PHONE</p>
+                <a href="tel:0777568841" class="text-sm font-bold text-slate-900 dark:text-white hover:text-brand-gold transition-colors">0777-56-88-41</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span class="w-11 h-11 rounded-lg bg-white dark:bg-brand-navy border border-slate-200 dark:border-brand-gold/20 flex items-center justify-center text-brand-gold text-lg shadow-sm">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+              <div>
+                <p class="text-xs text-slate-400 font-semibold">EMAIL</p>
+                <a href="mailto:tharindur818@gmail.com" class="text-sm font-bold text-slate-900 dark:text-white hover:text-brand-gold transition-colors">tharindur818@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <span class="w-11 h-11 rounded-lg bg-white dark:bg-brand-navy border border-slate-200 dark:border-brand-gold/20 flex items-center justify-center text-brand-gold text-lg shadow-sm">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </span>
+              <div>
+                <p class="text-xs text-slate-400 font-semibold">LOCATION</p>
+                <span class="text-sm font-bold text-slate-900 dark:text-white">135/A Bandarawela Rd, Badulla, Sri Lanka</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 bg-white dark:bg-brand-navy p-8 rounded-xl shadow-lg border border-slate-200 dark:border-brand-navy-light">
+          <form id="portfolioContactForm" class="space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-brand-slate mb-2">Name</label>
+                <input type="text" id="name" required class="w-full bg-slate-50 dark:bg-brand-navy-light text-slate-800 dark:text-white px-4 py-3 rounded-lg border border-slate-200 dark:border-brand-gold/20 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all text-sm">
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-brand-slate mb-2">Email</label>
+                <input type="email" id="email" required class="w-full bg-slate-50 dark:bg-brand-navy-light text-slate-800 dark:text-white px-4 py-3 rounded-lg border border-slate-200 dark:border-brand-gold/20 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all text-sm">
+              </div>
+            </div>
+            <div>
+              <label for="subject" class="block text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-brand-slate mb-2">Subject</label>
+              <input type="text" id="subject" required class="w-full bg-slate-50 dark:bg-brand-navy-light text-slate-800 dark:text-white px-4 py-3 rounded-lg border border-slate-200 dark:border-brand-gold/20 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all text-sm">
+            </div>
+            <div>
+              <label for="message" class="block text-xs font-bold tracking-wider uppercase text-slate-500 dark:text-brand-slate mb-2">Message</label>
+              <textarea id="message" rows="5" required class="w-full bg-slate-50 dark:bg-brand-navy-light text-slate-800 dark:text-white px-4 py-3 rounded-lg border border-slate-200 dark:border-brand-gold/20 focus:outline-none focus:ring-2 focus:ring-brand-gold transition-all text-sm resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full py-4 bg-brand-gold text-brand-navy hover:bg-brand-navy hover:text-white border-2 border-brand-gold rounded-lg font-bold shadow-lg transition-all">
+              Send Secure Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-6 bg-brand-navy/60 backdrop-blur-sm hidden">
+    <div class="bg-white dark:bg-brand-navy-light max-w-sm w-full p-8 rounded-xl shadow-2xl border border-brand-gold text-center relative">
+      <span class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 text-green-500 flex items-center justify-center text-3xl mx-auto mb-4">
+        <i class="fa-solid fa-circle-check"></i>
+      </span>
+      <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Message Dispatched!</h4>
+      <p class="text-sm text-slate-500 dark:text-brand-slate mb-6">Thank you for your message. Tharindu will review and respond to you as soon as possible.</p>
+      <button id="closeModalBtn" class="px-6 py-2.5 bg-brand-gold text-brand-navy rounded-lg font-bold hover:bg-white hover:text-brand-navy border border-brand-gold transition-all w-full">
+        Close Dialog
+      </button>
+    </div>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-xs font-mono">&copy; 2026 Tharindu Rathnayake. All Rights Reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="#about" class="hover:text-brand-gold transition-colors">Summary</a>
+        <a href="#experience" class="hover:text-brand-gold transition-colors">Experience</a>
+        <a href="#skills" class="hover:text-brand-gold transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-brand-gold transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Light/Dark Theme Switcher
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeToggleMob = document.getElementById('themeToggleMob');
+
+    function setTheme(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    // Initial setup
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+      setTheme(true);
+    } else {
+      setTheme(false);
+    }
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(!isDark);
+    });
+    themeToggleMob.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setTheme(!isDark);
+    });
+    // Mobile Menu Button
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close menu on mobile link clicks
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    // Form Submission Modal Simulation
+    const form = document.getElementById('portfolioContactForm');
+    const modal = document.getElementById('successModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      modal.classList.remove('hidden');
+      form.reset();
+    });
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.add('hidden');
+    });
+    // Hide modal on outside click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+
+</html>
+"""
+
+# Write the HTML content into a file
+with open("Tharindu_Rathnayake_Portfolio.html", "w", encoding="utf-8") as f:
+f.write(portfolio_html)
+
+print("Portfolio website generated successfully.")
